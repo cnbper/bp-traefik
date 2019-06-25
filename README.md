@@ -19,7 +19,7 @@ tar zxvf traefik-${TraefikVersion}.src.tar.gz -C traefik-release
 ```shell
 kubectl apply -f traefik-release/examples/k8s/traefik-rbac.yaml
 # 注意修改镜像地址 registry.sloth.com/traefik/traefik:v1.7.12
-# 打印 accessLog
+# 添加 nodeSelector kubernetes.io/hostname: "kube-node1"
 kubectl apply -f traefik-release/examples/k8s/traefik-ds.yaml
 # 暴露服务：Traefik Web UI
 cat <<EOF | kubectl -n kube-system apply -f -
